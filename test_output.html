@@ -1,0 +1,498 @@
+
+Warning: Undefined array key "REQUEST_URI" in C:\laragon\www\Rpl\resources\views\layouts\dashboard_layout.php on line 8
+
+Deprecated: str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\Rpl\resources\views\layouts\dashboard_layout.php on line 9
+<!DOCTYPE html>
+<html class="h-full" lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Edit User - SIWARGA Desa</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00288e",
+                        "primary-container": "#1e40af",
+                        "secondary": "#006c4a",
+                        "secondary-container": "#82f5c1",
+                        "surface": "#faf8ff",
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+                    },
+                    fontWeight: {
+                        'normal': '500',
+                        'medium': '600',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .civic-mesh-bg {
+            background-color: #f8faff;
+            background-image: 
+                radial-gradient(at 15% 15%, rgba(30, 64, 175, 0.06) 0px, transparent 45%),
+                radial-gradient(at 85% 10%, rgba(5, 150, 105, 0.05) 0px, transparent 40%),
+                radial-gradient(at 50% 90%, rgba(37, 99, 235, 0.04) 0px, transparent 50%);
+        }
+        html {
+            -webkit-font-smoothing: subpixel-antialiased;
+            -moz-osx-font-smoothing: auto;
+            text-rendering: optimizeLegibility;
+        }
+        body {
+            -webkit-font-smoothing: subpixel-antialiased;
+            -moz-osx-font-smoothing: auto;
+            text-rendering: optimizeLegibility;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            -webkit-font-smoothing: subpixel-antialiased;
+            text-rendering: optimizeLegibility;
+            letter-spacing: -0.02em;
+            font-weight: 800;
+        }
+        p, span, a, li, td, th, div, button, input, select, textarea {
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+            transition: all 0.25s ease;
+        }
+        .glass-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+            transform: translateY(-2px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+        }
+        .menu-item:hover .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="h-full font-sans text-slate-800 civic-mesh-bg">
+
+<div class="flex h-full">
+
+    <!-- ============================================
+         SIDEBAR
+         ============================================ -->
+    <aside class="fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white/80 backdrop-blur-xl border-r border-slate-200/80 flex flex-col transition-transform -translate-x-full lg:translate-x-0" id="sidebar">
+        
+        <!-- Logo -->
+        <div class="p-5 border-b border-slate-200/80">
+            <div class="flex items-center space-x-2.5">
+                <div class="w-9 h-9 rounded-xl bg-blue-700 text-white flex items-center justify-center shadow-md shadow-blue-700/20">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </div>
+                <div>
+                    <div class="text-base font-extrabold tracking-tight text-slate-900 leading-tight">SIWARGA</div>
+                    <div class="text-[9px] font-bold uppercase tracking-wider text-emerald-700">Desa Digital</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Profile -->
+        <div class="p-4 border-b border-slate-200/80">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-md" 
+                     style="background: #dc2626;">
+                    S                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="text-sm font-bold text-slate-900 truncate">Super Admin</div>
+                    <div class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[12px]" style="color: #dc2626;">shield_person</span>
+                        <span class="text-[11px] text-slate-500 font-semibold">Super Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <nav class="flex-1 overflow-y-auto p-3 space-y-4">
+                            <div>
+                    <div class="px-3 mb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Utama                    </div>
+                    <ul class="space-y-1">
+                                                                                <li>
+                                <a href="/dashboard" 
+                                   class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all
+                                   text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                                    <span class="material-symbols-outlined text-[20px] text-slate-400">
+                                        dashboard                                    </span>
+                                    <span>Dashboard</span>
+                                                                    </a>
+                            </li>
+                                                                                <li>
+                                <a href="/verifikasi" 
+                                   class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all
+                                   text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                                    <span class="material-symbols-outlined text-[20px] text-slate-400">
+                                        verified_user                                    </span>
+                                    <span>Verifikasi Warga</span>
+                                                                    </a>
+                            </li>
+                                                                                <li>
+                                <a href="/wilayah" 
+                                   class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all
+                                   text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                                    <span class="material-symbols-outlined text-[20px] text-slate-400">
+                                        map                                    </span>
+                                    <span>Manajemen Wilayah</span>
+                                                                    </a>
+                            </li>
+                                                                                <li>
+                                <a href="/rt_rw" 
+                                   class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all
+                                   text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                                    <span class="material-symbols-outlined text-[20px] text-slate-400">
+                                        apartment                                    </span>
+                                    <span>Manajemen RT/RW</span>
+                                                                    </a>
+                            </li>
+                                                                                <li>
+                                <a href="/users" 
+                                   class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all
+                                   text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                                    <span class="material-symbols-outlined text-[20px] text-slate-400">
+                                        manage_accounts                                    </span>
+                                    <span>Manajemen User</span>
+                                                                    </a>
+                            </li>
+                                                                                <li>
+                                <a href="/warga" 
+                                   class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all
+                                   text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                                    <span class="material-symbols-outlined text-[20px] text-slate-400">
+                                        groups                                    </span>
+                                    <span>Data Warga</span>
+                                                                    </a>
+                            </li>
+                                            </ul>
+                </div>
+                            <div>
+                    <div class="px-3 mb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Layanan                    </div>
+                    <ul class="space-y-1">
+                                                                                <li>
+                                <a href="/pelayanan" 
+                                   class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all
+                                   text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                                    <span class="material-symbols-outlined text-[20px] text-slate-400">
+                                        support_agent                                    </span>
+                                    <span>Pelayanan</span>
+                                                                    </a>
+                            </li>
+                                                                                <li>
+                                <a href="/pengaduan" 
+                                   class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all
+                                   text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                                    <span class="material-symbols-outlined text-[20px] text-slate-400">
+                                        campaign                                    </span>
+                                    <span>Pengaduan</span>
+                                                                    </a>
+                            </li>
+                                                                                <li>
+                                <a href="/surat" 
+                                   class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all
+                                   text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                                    <span class="material-symbols-outlined text-[20px] text-slate-400">
+                                        description                                    </span>
+                                    <span>Template Surat</span>
+                                                                    </a>
+                            </li>
+                                            </ul>
+                </div>
+                            <div>
+                    <div class="px-3 mb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Lainnya                    </div>
+                    <ul class="space-y-1">
+                                                                                <li>
+                                <a href="/laporan" 
+                                   class="menu-item flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all
+                                   text-slate-600 hover:bg-slate-50 hover:text-slate-900">
+                                    <span class="material-symbols-outlined text-[20px] text-slate-400">
+                                        bar_chart                                    </span>
+                                    <span>Laporan</span>
+                                                                    </a>
+                            </li>
+                                            </ul>
+                </div>
+                    </nav>
+
+        <!-- Logout -->
+        <div class="p-3 border-t border-slate-200/80">
+            <a href="/logout" 
+               class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-rose-600 hover:bg-rose-50 transition-all">
+                <span class="material-symbols-outlined text-[20px]">logout</span>
+                <span>Keluar</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Overlay mobile -->
+    <div class="fixed inset-0 bg-slate-900/50 z-40 lg:hidden hidden" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <main class="flex-1 flex flex-col overflow-hidden">
+
+        <!-- TOP BAR -->
+        <header class="bg-white/80 backdrop-blur-xl border-b border-slate-200/80 px-4 sm:px-6 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <button class="lg:hidden p-2 rounded-lg hover:bg-slate-100" onclick="toggleSidebar()">
+                    <span class="material-symbols-outlined text-slate-700">menu</span>
+                </button>
+                
+                <div>
+                    <h1 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">Edit User</h1>
+                    <p class="text-[11px] text-slate-500 hidden sm:block">
+                        Selamat pagi, <strong class="text-slate-700">Super</strong> 👋
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <!-- Live Status -->
+                <div class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-slate-200/80">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-[10px] text-slate-700 font-semibold">Online</span>
+                </div>
+
+                <!-- Role Badge -->
+                <div class="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-full border"
+                     style="background: #dc262615; border-color: #dc262640; color: #dc2626;">
+                    <span class="material-symbols-outlined text-[14px]">shield_person</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider">Super Admin</span>
+                </div>
+
+                <!-- Notification -->
+                <button class="relative p-2 rounded-lg hover:bg-slate-100 transition-colors">
+                    <span class="material-symbols-outlined text-slate-600 text-[20px]">notifications</span>
+                    <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-rose-500"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6">
+            
+            <!-- KONTEN HALAMAN DARI VIEW MASING-MASING DI-INCLUDE DI SINI -->
+<!-- TOMBOL KEMBALI -->
+<div class="mb-5">
+    <a href="/users" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 hover:bg-slate-100 border border-slate-200/80 text-slate-700 text-sm font-bold shadow-sm transition-all group">
+        <span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+        Kembali ke Daftar User
+    </a>
+</div>
+
+<!-- FORM CARD -->
+<div class="glass-card rounded-2xl p-6 sm:p-8 max-w-2xl bg-white border border-slate-200/80 shadow-sm">
+    
+    <!-- CARD HEADER -->
+    <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-100">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white flex items-center justify-center shadow-lg shadow-blue-700/25 flex-shrink-0">
+            <span class="material-symbols-outlined text-[26px]">manage_accounts</span>
+        </div>
+        <div>
+            <div class="flex items-center gap-2">
+                <h2 class="text-xl font-extrabold text-slate-900 tracking-tight">Edit Data User</h2>
+                            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Perbarui informasi akun, email, serta penetapan role & wilayah user</p>
+        </div>
+    </div>
+
+    <!-- FORM BODY -->
+    <form method="POST" action="/users?action=
+Warning: Undefined array key "id" in C:\laragon\www\Rpl\resources\views\users\form.php on line 40
+update&id=" class="space-y-5">
+        
+        <!-- NAMA LENGKAP -->
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Nama Lengkap <span class="text-rose-500">*</span>
+            </label>
+            <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[20px] pointer-events-none">person</span>
+                <input type="text" name="name" 
+                       value="" 
+                       placeholder="Masukkan nama lengkap" 
+                       required 
+                       class="block w-full pl-11 pr-4 py-3 bg-slate-50/70 border border-slate-300 rounded-xl text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all font-medium">
+            </div>
+        </div>
+
+        <!-- EMAIL -->
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Alamat Email <span class="text-rose-500">*</span>
+            </label>
+            <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[20px] pointer-events-none">mail</span>
+                <input type="email" name="email" 
+                       value="" 
+                       placeholder="nama@email.com" 
+                       required 
+                       class="block w-full pl-11 pr-4 py-3 bg-slate-50/70 border border-slate-300 rounded-xl text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all font-medium">
+            </div>
+        </div>
+
+        <!-- PASSWORD -->
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Password Baru (Opsional)            </label>
+            <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[20px] pointer-events-none">lock</span>
+                <input type="password" name="password" 
+                        
+                       placeholder="Biarkan kosong jika tidak ingin mengubah password" 
+                       class="block w-full pl-11 pr-4 py-3 bg-slate-50/70 border border-slate-300 rounded-xl text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all font-medium">
+            </div>
+                            <p class="text-[11px] text-slate-400 mt-1.5 flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">info</span>
+                    Biarkan kosong jika password user ini tidak ingin diubah.
+                </p>
+                    </div>
+
+        <!-- ROLE -->
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Hak Akses / Role <span class="text-rose-500">*</span>
+            </label>
+            <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[20px] pointer-events-none">shield_person</span>
+                <select name="role" required class="block w-full pl-11 pr-10 py-3 bg-slate-50/70 border border-slate-300 rounded-xl text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all font-medium appearance-none">
+                    <option value="super_admin" >👑 Super Admin (Akses Penuh)</option>
+                    <option value="desa" >🏛️ Admin Desa (Pengelola Desa)</option>
+                    <option value="rw" >🏠 Ketua RW (Pengelola RW)</option>
+                    <option value="rt" >🏘️ Ketua RT (Pengelola RT)</option>
+                    <option value="warga" selected>👤 Warga (Layanan Mandiri)</option>
+                </select>
+                <span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[20px] pointer-events-none">expand_more</span>
+            </div>
+        </div>
+
+        <!-- WILAYAH CARD -->
+        <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-200/80 space-y-3">
+            <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px] text-slate-600">location_on</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-700">Penugasan Wilayah (Opsional)</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <!-- DESA -->
+                <div>
+                    <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1.5">Desa</label>
+                    <div class="relative">
+                        <select name="desa_id" class="block w-full px-3 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-900 text-xs font-medium focus:ring-2 focus:ring-blue-600 transition-all appearance-none pr-8">
+                            <option value="">-- Pilih Desa --</option>
+                                                            <option value="1" >
+                                    Desa Sukamaju                                </option>
+                                                    </select>
+                        <span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-[16px] pointer-events-none">expand_more</span>
+                    </div>
+                </div>
+
+                <!-- RW -->
+                <div>
+                    <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1.5">RW</label>
+                    <div class="relative">
+                        <select name="rw_id" class="block w-full px-3 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-900 text-xs font-medium focus:ring-2 focus:ring-blue-600 transition-all appearance-none pr-8">
+                            <option value="">-- Pilih RW --</option>
+                                                            <option value="1" >
+                                    RW 01                                </option>
+                                                            <option value="2" >
+                                    RW 02                                </option>
+                                                            <option value="3" >
+                                    RW 03                                </option>
+                                                    </select>
+                        <span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-[16px] pointer-events-none">expand_more</span>
+                    </div>
+                </div>
+
+                <!-- RT -->
+                <div>
+                    <label class="block text-[11px] font-bold uppercase text-slate-600 mb-1.5">RT</label>
+                    <div class="relative">
+                        <select name="rt_id" class="block w-full px-3 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-900 text-xs font-medium focus:ring-2 focus:ring-blue-600 transition-all appearance-none pr-8">
+                            <option value="">-- Pilih RT --</option>
+                                                            <option value="1" >
+                                    RT 01                                </option>
+                                                            <option value="2" >
+                                    RT 02                                </option>
+                                                            <option value="3" >
+                                    RT 03                                </option>
+                                                            <option value="4" >
+                                    RT 04                                </option>
+                                                            <option value="5" >
+                                    RT 05                                </option>
+                                                    </select>
+                        <span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-[16px] pointer-events-none">expand_more</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOMBOL AKSI -->
+        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+            <button type="submit" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-700 hover:bg-blue-800 text-white text-sm font-bold shadow-md shadow-blue-700/25 hover:shadow-lg transition-all">
+                <span class="material-symbols-outlined text-[18px]">save</span>
+                Simpan Perubahan            </button>
+            <a href="/users" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold transition-all">
+                Batal
+            </a>
+        </div>
+
+    </form>
+</div>
+
+        </div>
+        <!-- END CONTENT -->
+
+        <!-- FOOTER -->
+        <footer class="bg-white/60 backdrop-blur-xl border-t border-slate-200/80 px-4 sm:px-6 py-3 text-center">
+            <p class="text-[11px] text-slate-500">
+                © 2026 <strong class="text-slate-700">SIWARGA Desa Digital</strong>. Terintegrasi dengan Sistem Tata Kelola Pemerintahan Desa.
+            </p>
+        </footer>
+
+    </main>
+</div>
+
+<script>
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        document.getElementById('sidebarOverlay').classList.toggle('hidden');
+    }
+</script>
+
+
+</body>
+</html>
