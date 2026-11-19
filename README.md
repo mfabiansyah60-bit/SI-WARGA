@@ -15,27 +15,9 @@
 
 ---
 
-## 📺 Tautan Video Presentasi Progres & Demo Final
-Sesuai panduan rubrik penilaian OBE STMIK IKMI Cirebon (video mandatori dengan webcam/wajah di pojok, resolusi ≥ 720p/1080p, dan audio jelas):
-
-| Tahapan Video | Durasi Acuan | Fokus Konten | Tautan Video (YouTube / GDrive) |
-| :--- | :--- | :--- | :--- |
-| **Video 1 (Progres 1)** | 3 – 5 Menit | Latar Belakang Masalah, Urgensi Solusi, User Stories, PRD/SRS Mandiri (IEEE 830), dan Kebutuhan Non-Fungsional | [Link Video 1](https://youtu.be/placeholder-video-1) |
-| **Video 2 (Progres 2)** | 5 – 7 Menit | Arsitektur Sistem (Use Case, Activity, Class, Sequence Diagram), ERD Database Kependudukan & Pelayanan Desa, serta Live Demo Prototipe UI/UX | [Link Video 2](https://youtu.be/placeholder-video-2) |
-| **Video Final (Demo Akhir)** | 8 – 12 Menit | End-to-End Live Walkthrough (5 Peran Pengguna: Warga, RT, RW, Desa, Super Admin), Fitur SIWARGA AI Multi-Key Failover & Cooldown, Pelayanan Surat & Pengaduan, Notifikasi WhatsApp Gateway, dan Automated Testing | [Link Video Final](https://youtu.be/placeholder-video-final) |
-
----
-
-## 🎨 Prototipe Interaktif UI/UX (Figma)
-- **Tautan Figma Live Prototype**: [SIWARGA Interactive Figma Prototype](https://www.figma.com/design/placeholder-siwarga)
-- **Frame Utama Desain**:
-  1. `00_Cover`: Cover & Spesifikasi Identitas Proyek Akademik STMIK IKMI Cirebon
-  2. `01_Design_Tokens`: Sistem Warna, Tipografi, Radius, dan Status Chips Badge
-  3. `02_Landing_Page`: Halaman Utama Publik dengan Hero Section, Layanan Persuratan, Statistik Wilayah, & FAQ
-  4. `03_Dashboard_Warga`: Pengajuan Surat Mandiri, Tracking Status Berkas, Layanan Pengaduan, & SIWARGA AI
-  5. `04_Dashboard_RT_RW`: Pemeriksaan dan Verifikasi Pengantar Surat Tingkat RT/RW, Monitoring Kependudukan, & Rekapitulasi Aduan
-  6. `05_Dashboard_Admin_Desa`: Meja Kerja Validasi & Persetujuan Surat Resmi Desa, Manajemen Layanan, & Pengumuman
-  7. `06_Dashboard_SuperAdmin`: Manajemen Pengguna (RBAC), Log Aktivitas, Konfigurasi AI Multi-Key & WhatsApp Gateway
+## 📺 Tautan Video Demo Final & Prototipe Desain
+- **Tautan Video Demo Final**: [Tonton Video Demo Final SIWARGA (YouTube)](https://youtu.be/QcLK4wRJ98Y)
+- **Tautan Prototipe Figma**: [Akses Prototipe UI/UX SIWARGA (Figma)](https://www.figma.com/design/Zd5Y2jV5gwGmKmpw8thXI2/Untitled?node-id=0-1&t=GxYNL7dGgwopdwVG-1)
 
 ---
 
@@ -60,7 +42,7 @@ Sesuai panduan rubrik penilaian OBE STMIK IKMI Cirebon (video mandatori dengan w
 
 ## 🛠️ Panduan Instalasi & Eksekusi Lokal (Cara Menjalankan)
 
-Berikut adalah panduan lengkap untuk mengkloning dan menjalankan proyek **SIWARGA** di lingkungan lokal Anda (mendukung Laragon, XAMPP, maupun PHP Built-in Server):
+Berikut adalah panduan untuk mengkloning dan menjalankan proyek **SIWARGA** di lingkungan lokal Anda (mendukung Laragon, XAMPP, maupun PHP Built-in Server):
 
 ### Prasyarat Sistem:
 - **PHP**: Versi 8.1, 8.2, atau 8.3 (Disarankan PHP 8.2+) dengan ekstensi `pdo_mysql`, `curl`, `mbstring`, `openssl`, dan `gd` aktif.
@@ -71,24 +53,24 @@ Berikut adalah panduan lengkap untuk mengkloning dan menjalankan proyek **SIWARG
 ---
 
 ### 1. Kloning Repositori & Masuk ke Direktori
-Buka terminal (Git Bash, Command Prompt, atau PowerShell) di folder root web server Anda (misal: `C:\laragon\www` atau `C:\xampp\htdocs`):
+Buka terminal di direktori web server Anda (misal: `C:\laragon\www` atau `C:\xampp\htdocs`):
 ```bash
 git clone https://github.com/mfabiansyah60-bit/SI-WARGA.git
 cd SI-WARGA
 ```
 
 ### 2. Instal Dependensi PHP via Composer
-Jalankan perintah berikut di root folder proyek untuk mengunduh seluruh pustaka yang dibutuhkan:
+Jalankan perintah berikut di root folder proyek:
 ```bash
 composer install
 ```
 
 ### 3. Konfigurasi Environment (`.env`)
-Salin file konfigurasi atau buat file baru bernama `.env` pada root direktori:
+Salin file template `.env.example` menjadi `.env` pada root direktori:
 ```bash
 cp .env.example .env
 ```
-Pastikan pengaturan koneksi database dan API Key AI pada `.env` telah sesuai:
+Sesuaikan konfigurasi environment sesuai mesin lokal Anda:
 ```env
 APP_NAME=SIWARGA
 APP_ENV=local
@@ -100,49 +82,37 @@ DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=siwarga
 DB_USERNAME=root
-DB_PASSWORD=
+DB_PASSWORD=your_database_password
 
-# Konfigurasi Google Gemini AI Studio
+# Konfigurasi Google Gemini AI Studio (Gunakan API Key Pribadi Anda)
 GEMINI_API_KEY=your_gemini_api_key_here
 GEMINI_MODEL=gemini-3.6-flash,gemini-3.5-flash,gemini-flash-latest
 
-# Konfigurasi Notifikasi Email (SMTP PHPMailer - Opsional)
+# Konfigurasi Notifikasi Email (SMTP - Opsional)
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
 MAIL_USERNAME=your_email@gmail.com
-MAIL_PASSWORD=your_app_password
+MAIL_PASSWORD=your_email_password
 MAIL_ENCRYPTION=tls
 MAIL_FROM_NAME="Pemerintah Desa"
 ```
 
-### 4. Pembuatan Database & Inisialisasi Data Demo
-1. Buat database baru di MySQL bernama **`siwarga`** melalui phpMyAdmin, HeidiSQL, atau terminal MySQL:
+### 4. Setup Database & Inisialisasi Data Awal
+1. Buat database baru di MySQL dengan nama **`siwarga`** melalui phpMyAdmin, HeidiSQL, atau terminal MySQL:
    ```sql
    CREATE DATABASE siwarga CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
    ```
-2. Jalankan skrip seeder otomatis untuk mengisi tabel, data wilayah desa, katalog layanan, dan akun pengguna demo:
+2. Jalankan skrip inisialisasi lokal untuk membuat struktur tabel dan data referensi awal:
    ```bash
    php scripts/seed_demo.php
    ```
+   *(Catatan Keamanan: Seluruh data kependudukan pengujian digenerate secara lokal dan tidak memuat data sensitif publik).*
 
-### 5. Akun Pengguna Demo untuk Pengujian
-Setelah seeding selesai, Anda dapat langsung melakukan login menggunakan akun default berikut:
-
-| Peran (Role) | Email Login | Password Default | Akses Menu & Wewenang |
-| :--- | :--- | :--- | :--- |
-| **Super Admin** | `super@admin.com` | `admin123` | Akses penuh sistem, manajemen user, konfigurasi AI & WA |
-| **Admin Desa** | `desa@demo.com` | `demo123` | Verifikasi akhir surat, layanan desa, & pengumuman publik |
-| **Ketua RW** | `rw@demo.com` | `demo123` | Validasi & monitoring wilayah RW |
-| **Ketua RT** | `rt@demo.com` | `demo123` | Validasi pengantar awal surat & pengaduan lingkungan RT |
-| **Warga** | `warga@demo.com` | `demo123` | Layanan mandiri permohonan surat, aduan, & chat AI 24/7 |
-
----
-
-### 6. Menjalankan Server Aplikasi
+### 5. Menjalankan Server Aplikasi
 
 Pilih salah satu metode yang paling sesuai dengan lingkungan lokal Anda:
 
-#### Opsi A: Menggunakan PHP Built-in Server (Rekomendasi Cepat & Portabel)
+#### Opsi A: Menggunakan PHP Built-in Server (Cepat & Mandiri)
 Jalankan perintah ini di root folder proyek:
 ```bash
 php -S localhost:8000 -t public
@@ -157,7 +127,7 @@ Aplikasi SIWARGA langsung dapat diakses di peramban (browser) melalui URL:
 
 ---
 
-### 7. Menjalankan Pengujian Unit Otomatis (Automated Testing)
+### 6. Menjalankan Pengujian Unit Otomatis (Automated Testing)
 Proyek ini dilengkapi rangkaian pengujian unit dan integrasi otomatis untuk memverifikasi logika bisnis, hak akses role, serta keandalan failover AI:
 ```bash
 # Uji Fitur AI Role Warga, Privasi Data, & Simulasi Failover Cooldown:
@@ -242,7 +212,7 @@ SI-WARGA/
 │   ├── ai_config.json           # Konfigurasi Multi-Key & Model AI Gemini
 │   ├── ai_key_cooldown.json     # Cache status cooldown & prioritisasi key AI
 │   ├── whatsapp_config.json     # Konfigurasi token & gateway WhatsApp
-│   └── backups/                 # Arsip backup database & template surat
+│   └── backups/                 # Arsip cadangan lokal
 ├── tests/                       # Automated Testing Suite (Unit & Integration Test)
 │   ├── AIConfigTest.php         # Pengujian konfigurasi & masking API key
 │   ├── AISidebarIntelligenceTest.php # Pengujian kecerdasan AI sidebar & RBAC
